@@ -1,72 +1,78 @@
 #include <stdio.h>
-void printaraye(int b[],int N );
-int mean(int b[],int N);
-void buble(int h[],int N);
+#include <stdlib.h>
+#include <math.h>
+void solve2 ();
+
 
 int main()
 {
-	int k[]={5,0,6,7,8,45,12,2,77};
-
-	int N=sizeof(k) / sizeof(k[4]);
-
-	printaraye(k,N);
-
-
-
-	float m = mean(k,N);
-	printf("\nmean = %f",m);
-
-	buble(k,N);
-
-	printaraye(k,N);
-
+	solve2();
 return 0;
 }
+ void solve2()
+{
+	float a,b,c;
+    printf("\n hale moadele darage2 ba metod malek\n");
+	printf("aX2+bX+c=0");
 
-void printaraye(int b[],int N )
-{
-	printf("\nitem of araay:\n");
-	int i;
-	for(i=0;i<N;i++)
-	{	printf("%d",b[i]);
-		if(i<N-1)
-		printf(",");
-	}
-}
-int mean(int b[],int N)
-{
-	int i;
-	int sum=0;
-	for(i=0;i<N;i++)
-	{
-	 sum = b[i]+sum;
-	}
-	float mean;
-	mean = (float)sum/N;
+	printf("\na ro vared kon:\n");
+	scanf ("%f",&a);
 
-return mean;
-}
-void buble(int h[],int N)
-{
-	int i,j;
-	int swap;
-	for(i=0;i<N;i++)
-	{
-        swap=0;
-		for(j=0;j<N-1;j++)
+	printf("\nb ro vared kon:\n");
+	scanf ("%f",&b);
+
+	printf("\nc ro vared kon:\n");
+	scanf ("%f",&c);
+
+printf("\nmadele shmoma %.0fX2+%.0fX+%.0f=0 ",a,b,c);
+
+    if(a==0)
+	{	float x;
+		if(b==0)
 		{
-		if(h[j]>h[j+1])
-	      {
-			int temp;
+			printf("\nohoooy ghabel hal ni.\n");
+		}
+		else
+		{
+			printf("\nmoadele darage1 ast.\n");
+			x=-c/b;
+			printf("\nX=%f\n",x);
+		}
+	}
 
-		temp=h[j];
-		h[j]=h[j+1];
-		h[j+1]=temp;
-	     swap=1;
-	      }
-         }
-	if(!swap) break;
+	else
+	{
 
-    }
+	float delta=b*b-(4*a*c);
+	float x1,x2;
+
+		if(delta==0)
+		{
+			printf("\nmoadele darage2 ye rishe mozaaf dare.\n");
+			x1=-b/( 2*a);
+			printf("\nX1=X2=%f\n",x1);
+		}
+
+		else if ( delta > 0)
+		{
+			printf("\nmoadele 2 rishe dare.\n");
+			x1=(-b+ sqrt(delta))/(2*a);
+
+			x2=(-b- sqrt(delta))/2*a;
+
+			printf("\nX1=%f\n",x1);
+
+			printf("\nX2=%f\n",x2);
+		}
+		else
+		{
+			printf("\nmoadele 2rihe mokhtalet darad ke man balad nistam\n");
+		}
+
+        printf("\nta moadele badi shoma ra be khoda miseparam\n\n");
+
+	}
+
 
 }
+
